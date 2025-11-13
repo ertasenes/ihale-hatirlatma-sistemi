@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 30px;
+        }
+        .content p {
+            margin: 15px 0;
+            font-size: 15px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #0078d4;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #0078d4;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .info-item {
+            margin: 12px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #0078d4;
+            display: inline-block;
+            min-width: 180px;
+        }
+        .info-value {
+            color: #333;
+        }
+        .kalan-gun {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d9534f;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff3f3;
+            border-radius: 8px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .warning strong {
+            color: #856404;
+            font-size: 16px;
+        }
+        .warning p {
+            margin: 10px 0 0 0;
+            color: #856404;
+        }
+        .footer {
+            text-align: center;
+            color: #6c757d;
+            font-size: 13px;
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer strong {
+            color: #495057;
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+            .content {
+                padding: 20px;
+            }
+            .info-label {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>🔔 İhale Hazırlık Hatırlatması</h2>
+        </div>
+        
+        <div class="content">
+            <p>Sayın <strong>{yonetici}</strong>,</p>
+            
+            <p><strong>{ihale_adi}</strong> ihalesinin hazırlık sürecine başlangıç dönemine yaklaştığınızı hatırlatmak isteriz.</p>
+            
+            <div class="kalan-gun">
+                📅 {kalan_gun} GÜN KALDI
+            </div>
+            
+            <div class="info-box">
+                <h3>📋 İhale Detayları</h3>
+                <div class="info-item">
+                    <span class="info-label">İhale Adı:</span>
+                    <span class="info-value">{ihale_adi}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Hazırlık Başlangıç Tarihi:</span>
+                    <span class="info-value">{baslangic_tarihi}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Kalan Süre:</span>
+                    <span class="info-value"><strong>{kalan_gun} gün</strong></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Sorumlu Yönetici:</span>
+                    <span class="info-value">{yonetici}</span>
+                </div>
+            </div>
+            
+            {aciliyet_mesaji}
+            
+            <p>Lütfen gerekli hazırlıkları zamanında başlatarak, ihale sürecinin sorunsuz ilerlemesini sağlayınız.</p>
+            
+            <p style="margin-top: 25px;">İyi çalışmalar dileriz.</p>
+        </div>
+        
+        <div class="footer">
+            <p>Bu mail otomatik olarak <strong>İhale Hatırlatma Sistemi</strong> tarafından gönderilmiştir.</p>
+            <p>📅 Gönderim Tarihi: {gonderim_tarihi}</p>
+        </div>
+    </div>
+</body>
+</html>
