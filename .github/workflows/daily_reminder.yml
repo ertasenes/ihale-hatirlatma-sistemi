@@ -1,11 +1,16 @@
 name: İhale Hatırlatma Sistemi - Günlük Çalıştırma
 
 on:
+<<<<<<< HEAD
   # Her gün Türkiye saati 09:00'da çalıştır (UTC 06:00)
   schedule:
     - cron: '0 6 * * *'
   
   # Manuel tetikleme de mümkün olsun
+=======
+  schedule:
+    - cron: '0 6 * * *'
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
   workflow_dispatch:
 
 jobs:
@@ -16,7 +21,10 @@ jobs:
     - name: 📥 Repository'yi Checkout Et
       uses: actions/checkout@v4
       with:
+<<<<<<< HEAD
         # En son değişiklikleri al
+=======
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
         fetch-depth: 0
     
     - name: 🐍 Python Kurulumu
@@ -37,27 +45,40 @@ jobs:
     
     - name: 🚀 İhale Hatırlatma Sistemini Çalıştır
       env:
+<<<<<<< HEAD
         # GitHub Secrets'tan SMTP bilgilerini al
+=======
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
         SMTP_PORT: ${{ secrets.SMTP_PORT }}
         SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
         SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         TEST_MODE: ${{ secrets.TEST_MODE }}
       run: |
+<<<<<<< HEAD
         cd src
         python main.py
+=======
+        python src/main.py
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
     
     - name: 💾 Güncellenmiş Dosyaları Commit Et
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         
+<<<<<<< HEAD
         # Değişen dosyaları ekle
+=======
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
         git add data/Merkezi_Takvimi.xlsx
         git add data/mail_raporu.xlsx
         git add logs/*.log
         
+<<<<<<< HEAD
         # Eğer değişiklik varsa commit et
+=======
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
         git diff --quiet && git diff --staged --quiet || \
         git commit -m "🤖 Otomatik güncelleme: $(date +'%Y-%m-%d %H:%M:%S')"
     
@@ -66,6 +87,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
+<<<<<<< HEAD
     
     - name: 📊 Çalışma Sonucu Özeti
       if: always()
@@ -87,3 +109,5 @@ jobs:
       run: |
         echo "❌ İhale Hatırlatma Sistemi çalıştırılırken hata oluştu!"
         echo "Lütfen logları kontrol edin."
+=======
+>>>>>>> 5447b0c0905ff96dba7eacb1893d69c37e2c691c
